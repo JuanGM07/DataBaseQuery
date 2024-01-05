@@ -13,8 +13,11 @@ st.set_page_config(page_title='Data Base Query',
 conn=sqlite3.connect('ecommerce.db')
 query='SELECT * FROM ventas'
 df=pd.read_sql_query(query,conn)
-st.sidebar.table(df)
+st.sidebar.write("Sales Data Base")
+st.sidebar.write(df)
 st.image(image=logo,width=None)
+st.write("Hello, I am Juan Gonzalez, engineer student and data scientist.")
+st.write("For any request my e-mail is: juanglezm3@gmail.com.")
 st.divider()
 st.title("Data Base Query")
 st.write("You can ask me all you want about the database")

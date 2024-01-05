@@ -7,7 +7,7 @@ import pandas as pd
 import sqlite3
 
 icono='149206.png'
-logo='cover.png'
+logo='cover-superdark.png'
 st.set_page_config(page_title='Data Base Query',
                    page_icon=icono)
 conn=sqlite3.connect('ecommerce.db')

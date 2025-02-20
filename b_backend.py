@@ -10,15 +10,13 @@ import streamlit as st
 
 import os
 
-OPENAI_API_KEY=st.secrets['OPENAI_API_KEY']
-
 # 3. Crear el LLM
 from langchain.chat_models import ChatOpenAI
-llm = ChatOpenAI(temperature=0,model_name='gpt-3.5-turbo')
+llm = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo', openai_api_key=st.secrets["OPENAI_API_KEY"])
 
 # 4. Crear la cadena
 from langchain.llms import OpenAI
-cadena = SQLDatabaseChain.from_llm(OpenAI(), db)
+cadena = SQLDatabaseChain.from_llm(OpenAI(openai_api_key=st.secrets["OPENAI_API_KEY"]), db)
 
 # 5. Formato personalizado de respuesta
 formato = """

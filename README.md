@@ -1,23 +1,22 @@
-# Reviews Analyzer
+# Data Base Query
 
-[![Screenshot-from-2025-03-24-16-38-44.png](https://i.postimg.cc/gkQS6jJZ/Screenshot-from-2025-03-24-16-38-44.png)](https://postimg.cc/ppQYw2KW)
+[![Screenshot-from-2025-03-25-16-00-25.png](https://i.postimg.cc/R0Hz1H15/Screenshot-from-2025-03-25-16-00-25.png)](https://postimg.cc/zL8M83P0)
 
-Analyzer Reviews es una herramienta diseñada para dar una vista general sobre las opiniones positivas y negativas de cualquier negocio (especialmente los españoles, porque todo el proceso de NPL se hace en español). Recopila informacion de Google Places, además de scrapear información de decenas de páginas webs. Luego realiza un limpiado y posterior análisis de sentimiento clasificando que aspectos son los mas negativos y positivos. Todo el código está en mi GitHub. Para cualquier problema o propuesta: juanglezm3@gmail.com
+Esta herramienta es un modelo NL2SQL, la cual recibe lenguaje natural y lo transforma a SQL para comunicarse con una base de datos. Esta base de datos es de prueba, y solo muestro 10 filas para que no se ralentize la carga, como ejemplo. Todo el codigo esta en mi Github. Para cualquier problema o propuesta: juanglezm3@gmail.com
 
 ## Comenzando 🚀
 
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
-Vas a necesitar dos api-keys, y una clave secreta que guardaras con las api-keys:
+Vas a necesitar una api-key:
 
-* [Google Places Api-Key](https://developers.google.com/maps/documentation/places/web-service/get-api-key) -> Enlace para obtenerla.
-* [Serp Api Key](https://serpapi.com/) -> Enlace para obtenerla.
+* [OpenAI Api-Key](https://openai.com/index/openai-api/) -> Enlace para obtenerla.
 
-En primer lugar crea un archivo .env, ahí guardaras tus claves con el siguiente par clave valor:
+En primer lugar crea un archivo .env, ahí guardaras tu clave con el siguiente par clave valor:
 
-* API_KEY = "tu_api_key" (esta será tu api_key de Google Places, no cambies el nombre)
-* SERP_API_KEY = "tu_api_key" (esta será tu api_key de Serp, no cambies el nombre)
-* SECRET_KEY = "clave_aleatoria" (se utiliza para el control de uso del usuario, ya que está programada para que solo se pueda usar una vez al día, se puede cambiar eliminando la funcio control_acceso() de app.py y quitandola de la funcion index() de app.py) 
+* OPENAI_API_KEY = "tu_api_key" (esta será tu api_key de OpenAI, no cambies el nombre)
+
+Crea un archivo .env en el directorio /backend, y guarda esta clave ahí.
 
 ### Pre-requisitos 📋
 
@@ -36,8 +35,8 @@ _Linux/MacOS:_
 ```
 python3 -m venv nombre_venv
 source nombre_venv/bin/activate
-pip install -r requirements.txt
-python3 app.py
+pip install -r /backend/requirements.txt
+python3 /backend/app.py
 ```
 
 _Windows_
@@ -45,8 +44,8 @@ _Windows_
 ```
 python3 -m venv nombre_venv
 nombre venv\Scripts\activate.bat
-pip install -r requirements.txt
-python3 app.py
+pip install -r \backend\requirements.txt
+python3 \backend\app.py
 ```
 
 _Ya tendrias la herramienta corriendo en tu maquina local_
@@ -54,10 +53,8 @@ _Ya tendrias la herramienta corriendo en tu maquina local_
 ## Construido con 🛠️
 
 * [Flask](https://flask.palletsprojects.com/en/stable/) - El framework web usado
-* [spaCy](https://spacy.io/) - Análisis de NLP
-* [NLTK](https://www.nltk.org/) - Análisis de NLP
-* [pysentimiento](https://arxiv.org/abs/2106.09462) - Herramienta de python para análisis de opinion, y recolección de reviews.
-
+* [LangChain](https://www.langchain.com/) - Integracion y uso de LLMS
+* [sqlite3](https://www.sqlite.org/) - Comunicacion del backend con la base de datos
 
 ## Licencia 📄
 

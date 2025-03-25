@@ -27,7 +27,7 @@ cadena = SQLDatabaseChain.from_llm(llm, db)
 # Función para obtener las primeras 20 filas de la base de datos
 def get_first_20_rows():
     conn = sqlite3.connect(DATABASE_PATH)
-    query = "SELECT * FROM ventas LIMIT 20"  # Cambia 'ventas' por el nombre de tu tabla
+    query = "SELECT * FROM ventas LIMIT 10"  # Cambia 'ventas' por el nombre de tu tabla
     df = pd.read_sql_query(query, conn)
     conn.close()
     return df.to_html(classes="table table-striped")
